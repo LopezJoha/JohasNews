@@ -19,7 +19,7 @@ export default function App() {
 
   const connectApi = async () => {
     fetch(
-      "https://newsapi.org/v2/everything?q=tesla&from=2024-01-08&sortBy=publishedAt&apiKey=" +
+      "https://newsapi.org/v2/everything?q=tesla&from=2024-02-08&sortBy=publishedAt&apiKey=" +
         process.env.EXPO_PUBLIC_API_KEY,
       {
         method: "GET",
@@ -27,6 +27,7 @@ export default function App() {
     )
       .then((res) => {
         res.json().then((data) => {
+          console.log(data)
           if (data?.articles) {
             setInfo(data.articles);
             setCurrentInfo(data.articles.slice(0, 20));
